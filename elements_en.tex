@@ -59,7 +59,11 @@
     writeelconf,
     Z
   } ,
-  add-silent-cmds = foo ,
+  add-silent-cmds = {
+    endhead, foo, ifnumless, LTleft, LTright, midrule, theelement, toprule,
+    whileboolexpr
+  } ,
+  add-silent-envs = { longtable, landscape } ,
   abstract = {%
     This package provides means for retrieving properties of chemical elements
     like atomic number, element symbol, element name, electron distribution or
@@ -79,6 +83,9 @@
      columnsep = 1em
   }
 }
+
+\usepackage{array,booktabs,longtable}
+\usepackage{lscape}
 
 \defbibheading{bibliography}{\addsec{References}}
 
@@ -227,5 +234,60 @@ shortened way (\eg: [Ar]$3d^{10}4s^1$).
 \end{example}
 
 \clearpage
+
+\addsec{Element Properties}
+
+On the following pages a table containing the properties known to \elements\
+is printed. For those interested: the code used to get the table is as follows
+(using the packages \pkg{lscape}~\cite{pkg:lscape} and
+\pkg{longtable}~\cite{pkg:longtable}).
+
+\begin{sourcecode}[gobble=0]
+\setlength\LTleft\fill
+\setlength\LTright\fill
+\newcounter{element}
+\setcounter{element}{1}
+\begin{landscape}
+\begin{longtable}{lllll}
+  \toprule
+    Number & Symbol & Name & Main Isotope & Electron Configuration \\
+  \midrule
+  \endhead
+  \whileboolexpr{test{\ifnumless{\value{element}}{113}}}
+    {
+      \theelement &
+      \elementsymbol{\arabic{element}} &
+      \elementname{\arabic{element}} &
+      \savemainelementisotope\foo{\arabic{element}}\foo &
+      \elconf{\arabic{element}}
+      \stepcounter{element} \\
+    }
+    {}
+\end{longtable}
+\end{landscape}
+\end{sourcecode}
+
+\setlength\LTleft\fill
+\setlength\LTright\fill
+\newcounter{element}
+\setcounter{element}{1}
+\begin{landscape}
+\begin{longtable}{lllll}
+  \toprule
+    Number & Symbol & Name & Main Isotope & Electron Configuration \\
+  \midrule
+  \endhead
+  \whileboolexpr{test{\ifnumless{\value{element}}{113}}}
+    {
+      \theelement &
+      \elementsymbol{\arabic{element}} &
+      \elementname{\arabic{element}} &
+      \savemainelementisotope\foo{\arabic{element}}\foo &
+      \elconf{\arabic{element}}
+      \stepcounter{element} \\
+    }
+    {}
+\end{longtable}
+\end{landscape}
 
 \end{document}
