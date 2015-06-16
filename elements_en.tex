@@ -1,0 +1,228 @@
+% arara: pdflatex
+% arara: biber
+% arara: pdflatex
+% arara: pdflatex
+% --------------------------------------------------------------------------
+% the ELEMENTS package
+% 
+%   retrieve different properties of chemical elements
+% 
+% --------------------------------------------------------------------------
+% Clemens Niederberger
+% Web:    https://github.com/cgnieder/elements/
+% E-Mail: contact@mychemistry.eu
+% --------------------------------------------------------------------------
+% Copyright 2015 Clemens Niederberger
+% 
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% 
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Clemens Niederberger.
+% --------------------------------------------------------------------------
+% If you have any ideas, questions, suggestions or bugs to report, please
+% feel free to contact me.
+% --------------------------------------------------------------------------
+\documentclass[load-preamble+]{cnltx-doc}
+\usepackage[utf8]{inputenc}
+\usepackage{elements}
+
+\setcnltx{
+  package = elements ,
+  authors = Clemens Niederberger ,
+  email   = contact@mychemistry.eu ,
+  url     = https://github.com/cgnieder/elements/ ,
+  add-cmds = {
+    atomicnumber,
+    DeclareAtomIsotopes,
+    DeclareAtomName,
+    DeclareAtomSymbol,
+    DeclareElectronDistribution,
+    elconf,
+    elementname,
+    elementsymbol,
+    saveatomicnumber,
+    saveelementisotopes,
+    saveelementname,
+    saveelementsymbol,
+    savemainelementisotope,
+    setatomisotopes,
+    setatomname,
+    setatomsymbol,
+    setelectrondistribution,
+    writeelconf,
+    Z
+  } ,
+  add-silent-cmds = foo ,
+  abstract = {%
+    This package provides means for retrieving properties of chemical elements
+    like atomic number, element symbol, element name, electron distribution or
+    isotope number.  Properties are defined for the elements up to the atomic
+    number~112.
+
+    This package is a spin-off of the package \pkg{bohr} by the same author.
+  } ,
+  index-setup = {
+     othercode = \footnotesize ,
+     level = \addsec ,
+     noclearpage
+  } ,
+  makeindex-setup = {
+     columns = 3 ,
+     columnsep = 1em
+  }
+}
+
+\defbibheading{bibliography}{\addsec{References}}
+
+\begin{document}
+
+\section{Licence and Requirements}
+\license
+
+\elements\ loads the \pkg{etoolbox} package~\cite{pkg:etoolbox}.
+
+\section{Element Names}
+
+\begin{commands}
+  \command{elementname}[\Marg{\meta{atomic number}|\meta{element symbol}}]
+    Prints the element name of a given element as defined with \cs{setatomname}.
+  \command{setatomname}[\oarg{alt.\@ name}\marg{atomic number}\marg{element
+    name}]
+    Define or redefine the name of an element.  If \meta{element name}
+    contains non-ascii symbols the optional argument \meta{alt.\@ name} must
+    be given.  In this case \meta{alt.\@ name} must be used in \elements'
+    other macros where an element's name can be given as argument.
+  \command{DeclareAtomName}[\oarg{alt.\@ name}\marg{atomic
+    number}\marg{element name}]
+    This is the same as \cs{setatomname} but used before begin document or in
+    packages/classes.
+  \command{saveelementname}[\marg{cs}\Marg{\meta{atomic number}|\meta{element
+      symbol}|\meta{element name}}]
+    Saves the name of the given element as replacement text for the macro
+    \meta{cs}.
+\end{commands}
+
+\begin{example}[side-by-side]
+  \elementname{Cu} \par
+  \elementname{11} \par
+  \saveelementname\foo{28}
+  \ttfamily\meaning\foo
+\end{example}
+
+\section{Element Symbols}
+
+\begin{commands}
+  \command{elementsymbol}[\Marg{\meta{atomic number}|\meta{element name}}]
+    Prints the element symbol of a given element as defined with \cs{setatomsymbol}.
+  \command{setatomsymbol}[\marg{atomic number}\marg{element symbol}]
+    Define or redefine the symbol of an element.
+  \command{DeclareAtomSymbol}[\marg{atomic number}\marg{element symbol}]
+    This is the same as \cs{setatomsymbol} but used before begin document or in
+    packages/classes.
+  \command{saveelementsymbol}[\marg{cs}\Marg{\meta{atomic number}|\meta{element
+      symbol}|\meta{element name}}]
+    Saves the symbol of the given element as replacement text for the macro
+    \meta{cs}.
+\end{commands}
+
+\begin{example}[side-by-side]
+  \elementsymbol{13} \par
+  \elementsymbol{Sulfur} \par
+  \saveelementsymbol\foo{83}
+  \ttfamily\meaning\foo
+\end{example}
+
+\section{Atomic Numbers}
+
+\begin{commands}
+  \command{atomicnumber}[\Marg{\meta{element symbol}|\meta{element name}}]
+    Prints the atomic number of a given element.
+  \command{Z}[\Marg{\meta{element symbol}|\meta{element name}}]
+    An alias of \cs{atomicnumber} but only defined at begin document and only
+    if it isn't defined by any other package.
+  \command{saveatomicnumber}[\marg{cs}\Marg{\meta{atomic number}|\meta{element
+      symbol}|\meta{element name}}]
+    Saves the atomic number of the given element as replacement text for the
+    macro \meta{cs}.
+\end{commands}
+
+\begin{example}[side-by-side]
+  \atomicnumber{U} \par
+  \atomicnumber{Chlorine} \par
+  \saveatomicnumber\foo{Kr}
+  \ttfamily\meaning\foo
+\end{example}
+
+\section{Electron Configuration}
+
+\begin{commands}
+  \command{elconf}[\Marg{\meta{atomic number}|\meta{element
+      symbol}|\meta{element name}}]
+    Typesets the electron configuration of the given element.
+  \command{writeelconf}[\marg{electron distribution}]
+    Typesets the electron distribution \meta{electron distribution}.  The
+    input is the same as described below for \cs{setelectrondistribution}.
+  \command{setelectrondistribution}[\marg{atomic number}\marg{electron distribution}]
+     This set the electron distribution associated with the atom number
+     \meta{atomic number}.  \meta{electron distribution} is a comma-separated
+     list of the number of electrons placed on each shell from inner to outer
+     shell.  For example \verbcode+\setelectrondistribution{3}{2,0,1}+ would
+     be an excited \elementname{3}.   The number of electrons with the same
+     principal quantum number but a different angular quantum number are
+     separated with a \code{+} ordered by the angular quantum number, \ie,
+     first \emph{s}, then \emph{p}, then \emph{d}, and then \emph{f} .
+     \elementname{29}’s distribution would be declared like this: \\
+     \verbcode!\setelectrondistribution{29}{2,2+6,2+6+10,1}!. \\
+     A declaration with \verbcode!\setelectrondistribution{29}{2,8,18,1}!
+     would work but then \verbcode!\elconf{29}! would give the wrong results.
+  \command{DeclareElectronDistribution}
+    This is the same as \cs{setelectrondistribution} but used before begin
+    document or in packages/classes. 
+\end{commands}
+
+\begin{example}[side-by-side]
+  \writeelconf{2,2+6,2+6+7} \par
+  \elconf{Cl}
+\end{example}
+
+There is currently \emph{no way} to get the electron configuration in the
+shortened way (\eg: [Ar]$3d^{10}4s^1$).
+
+\section{Isotope Lists}
+
+\begin{commands}
+  \command{setatomisotopes}[\marg{atomic number}\marg{isotope list}]
+    Defines or redefines the isotope list for a given element.  \meta{isotope
+      list} should be a comma seperated list of integers.  One of the integers
+    may be preceded with a \code{!} to mark the main isotope for the given
+    element: \verbcode+\setatomisotopes{6}{10,11,!12,13,14,15,16}+
+  \command{DeclareAtomIsotopes}[\marg{atomic number}\marg{isotope list}]
+    This is the same as \cs{setatomisotopes} but used before begin document or
+    in packages/classes.
+  \command{saveelementisotopes}[\marg{cs}\Marg{\meta{atomic number}|\meta{element
+      symbol}|\meta{element name}}]
+    Saves the isotope list of the given element as replacement text for the
+    macro \meta{cs}.
+  \command{savemainelementisotope}[\marg{cs}\Marg{\meta{atomic number}|\meta{element
+      symbol}|\meta{element name}}]
+    Saves the main isotope of the given element as replacement text for the
+    macro \meta{cs}.  If the isotope list of the element contains no main
+    isotope \meta{cs} will be equivalent to \cs*{@empty}.
+\end{commands}
+
+\begin{example}[side-by-side]
+  \ttfamily
+  \saveelementisotopes\foo{C}
+  \meaning\foo
+  \savemainelementisotope\foo{C}
+  \meaning\foo
+\end{example}
+
+\end{document}
