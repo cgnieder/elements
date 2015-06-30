@@ -25,8 +25,8 @@
 % If you have any ideas, questions, suggestions or bugs to report, please
 % feel free to contact me.
 % --------------------------------------------------------------------------
-\newcommand*\@elements@date{2015/06/014}
-\newcommand*\@elements@version{v0.1}
+\newcommand*\@elements@date{2015/06/30}
+\newcommand*\@elements@version{v0.1a}
 \newcommand*\@elements@description{properties of chemical elements}
 
 \ProvidesPackage{elements}[%
@@ -656,7 +656,13 @@
   \InputIfFileExists
     {elements_names_\@elements@language.def}
     {}
-    {\input{elements_elements_english.def}}
+    {\input{elements_names_english.def}}
 }
 
 \endinput
+
+HISTORY:
+2015/06/14 v0.1  - first public version
+2015/06/30 v0.1a - bug fix in loading the fallback translations
+
+
