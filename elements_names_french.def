@@ -58,7 +58,7 @@
 \DeclareAtomName[Cerium]{58}{C\'erium}
 \DeclareAtomName[Praseodyme]{59}{Pras\'eodyme}
 \DeclareAtomName[Neodyme]{60}{N\'eodyme}
-\DeclareAtomName{61}{Prom\'ethium}
+\DeclareAtomName[Promethium]{61}{Prom\'ethium}
 \DeclareAtomName{62}{Samarium}
 \DeclareAtomName{63}{Europium}
 \DeclareAtomName{64}{Gadolinium}

@@ -25,8 +25,8 @@
 % If you have any ideas, questions, suggestions or bugs to report, please
 % feel free to contact me.
 % --------------------------------------------------------------------------
-\newcommand*\@elements@date{2015/06/30}
-\newcommand*\@elements@version{v0.1a}
+\newcommand*\@elements@date{2015/10/15}
+\newcommand*\@elements@version{v0.1b}
 \newcommand*\@elements@description{properties of chemical elements}
 
 \ProvidesPackage{elements}[%
@@ -268,7 +268,7 @@
     {\@elements@parse@elconf#2\q@stop}%
 }
 
-\newrobustcmd*\@elements@write@elconf[1]{$#1$}
+\newrobustcmd*\@elements@write@elconf[1]{\ensuremath{#1}}
 
 % --------------------------------------------------------------------------
 % declare electron distributions
@@ -648,7 +648,7 @@
 \AfterEndPreamble{
   % this will load a file `elements_elements_<lang>.def', <lang> is a
   % `translations' base language
-  % currently only German and English are available, English being the
+  % currently German, English, and French are available, English being the
   % fallback; other languages are added by providing the corresponding file
   \ifdef\@elements@language
     {\edef\@elements@language{\@trnslt@language{\@elements@language}}}
@@ -664,5 +664,6 @@
 HISTORY:
 2015/06/14 v0.1  - first public version
 2015/06/30 v0.1a - bug fix in loading the fallback translations
+2015/10/15 v0.1b - minor fix in French translations
 
 
