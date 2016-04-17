@@ -8,7 +8,7 @@
 % Web:    https://github.com/cgnieder/elements/
 % E-Mail: contact@mychemistry.eu
 % --------------------------------------------------------------------------
-% Copyright 2015 Clemens Niederberger
+% Copyright 2015-2016 Clemens Niederberger
 % 
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -25,8 +25,8 @@
 % If you have any ideas, questions, suggestions or bugs to report, please
 % feel free to contact me.
 % --------------------------------------------------------------------------
-\newcommand*\@elements@date{2015/10/15}
-\newcommand*\@elements@version{v0.1b}
+\newcommand*\@elements@date{2016/04/17}
+\newcommand*\@elements@version{v0.1d}
 \newcommand*\@elements@description{properties of chemical elements}
 
 \ProvidesPackage{elements}[%
@@ -186,17 +186,28 @@
   \expandafter{#1}%
 }
 
-\newcommand*\@elements@extractmainisotope[2]{%
+\newrobustcmd*\@elements@extractmainisotope[2]{%
   \@elements@extractmainisotope@aux{#1}#2\q@stop
 }
-\newcommand*\@elements@extractmainisotope@aux[2]{%
+\newrobustcmd*\@elements@extractmainisotope@aux[2]{%
   \@elements@ifbang
     {\@elements@saveisotope{#1}}
     {\@elements@donothing{#1}}%
   #2%
 }
-\def\@elements@saveisotope#1#2\q@stop{\def#1{#2}\booltrue{@elements@found@isotope}}
-\def\@elements@donothing#1#2\q@stop{\ifbool{@elements@found@isotope}{}{\let#1\@empty}}
+\protected\def\@elements@saveisotope#1#2\q@stop{%
+  \def#1{#2}\booltrue{@elements@found@isotope}%
+}
+\protected\def\@elements@donothing#1#2\q@stop{%
+  \ifbool{@elements@found@isotope}{}{\let#1\@empty}%
+}
+
+\newrobustcmd*\mainelementisotope[1]{%
+  \begingroup
+    \savemainelementisotope\@elements@tmpa{#1}%
+    \@elements@tmpa
+  \endgroup
+}
 
 % --------------------------------------------------------------------------
 % electron distribution
@@ -213,39 +224,40 @@
   \csdef{@elements@electron@distribution@\romannumeral#1}{#2}%
 }
 
+% #1: element
+% #2: macro that gets the electron distribution as argument
+\newrobustcmd*\@elements@act@on@elconf[2]{%
+  \saveatomicnumber\@elements@tmpa{#1}%
+  \edef\@elements@tmpa{%
+    \csuse{@elements@electron@distribution@\romannumeral\@elements@tmpa}%
+  }%
+  \expandafter\def\expandafter\@elements@tmpa
+  \expandafter{\romannumeral-`0\@elements@tmpa}%
+  \expandafter#2\expandafter{\@elements@tmpa}%
+}
+
 \newcounter{@elements@orbital@type}
 \newcounter{@elements@shell@number}
 
 \newrobustcmd*\elconf[1]{\@elements@elconf{#1}}
-\newrobustcmd*\writeelconf[1]{\@elements@read@elconf{#1}}
+\newrobustcmd*\writeelconf[1]{\@elements@print@elconf{#1}}
 
-\newcommand*\@elements@elconf[1]{%
-  \@elements@ifisnum{#1}
-    {\def\@elements@tmpa{#1}}
-    {%
-      \lowercase{\ifcsdef{@elements@atom@number@#1}}
-        {\lowercase{\edef\@elements@tmpa{\csuse{@elements@atom@number@#1}}}}
-        {\lowercase{\edef\@elements@tmpa{\csuse{@elements@atom@name@num@#1}}}}%
-    }%
-  % \cnltx@expandargs(Nf)%
-  \def\@elements@tmpb{%
-    \csuse{@elements@electron@distribution@\romannumeral\@elements@tmpa}%
-  }%
-  \expandafter\def\expandafter\@elements@tmpb\expandafter{\romannumeral-`0\@elements@tmpb}%
-  \expandafter\@elements@read@elconf\expandafter{\@elements@tmpb}%
+% prints electron configuration of element #1:
+\newrobustcmd*\@elements@elconf[1]{%
+  \@elements@act@on@elconf{#1}{\@elements@print@elconf}%
 }
 
-\newrobustcmd*\@elements@read@elconf[1]{%
+\newrobustcmd*\@elements@print@elconf[1]{%
   \def\@elements@current@elconf{}%
   \setcounter{@elements@shell@number}{0}%
   \@elements@getelconf{#1}%
   \expandafter\@elements@write@elconf\expandafter{\@elements@current@elconf}%
 }
 
-\newcommand*\@elements@getelconf[1]{%
+\newrobustcmd*\@elements@getelconf[1]{%
   \forcsvlist{\@elements@getelconf@aux}{#1}%
 }
-\newcommand*\@elements@getelconf@aux[1]{%
+\newrobustcmd*\@elements@getelconf@aux[1]{%
   \stepcounter{@elements@shell@number}%
   \setcounter{@elements@orbital@type}{0}%
   \@elements@parse@elconf#1+\q@stop
@@ -283,9 +295,9 @@
 \DeclareElectronDistribution{7}{2,2+3}
 \DeclareElectronDistribution{8}{2,2+4}
 \DeclareElectronDistribution{9}{2,2+5}
-\DeclareElectronDistribution{10}{2,2+6}
+\DeclareElectronDistribution{10}{2,2+6}% Ne
 % period 3
-\DeclareElectronDistribution{11}{2,2+6,1}% Ne
+\DeclareElectronDistribution{11}{2,2+6,1}
 \DeclareElectronDistribution{12}{2,2+6,2}
 \DeclareElectronDistribution{13}{2,2+6,2+1}
 \DeclareElectronDistribution{14}{2,2+6,2+2}
@@ -396,6 +408,7 @@
 % declare atom symbols
 \DeclareAtomSymbol{1}{H}
 \DeclareAtomSymbol{2}{He}
+
 \DeclareAtomSymbol{3}{Li}
 \DeclareAtomSymbol{4}{Be}
 \DeclareAtomSymbol{5}{B}
@@ -404,6 +417,7 @@
 \DeclareAtomSymbol{8}{O}
 \DeclareAtomSymbol{9}{F}
 \DeclareAtomSymbol{10}{Ne}
+
 \DeclareAtomSymbol{11}{Na}
 \DeclareAtomSymbol{12}{Mg}
 \DeclareAtomSymbol{13}{Al}
@@ -412,6 +426,7 @@
 \DeclareAtomSymbol{16}{S}
 \DeclareAtomSymbol{17}{Cl}
 \DeclareAtomSymbol{18}{Ar}
+
 \DeclareAtomSymbol{19}{K}
 \DeclareAtomSymbol{20}{Ca}
 \DeclareAtomSymbol{21}{Sc}
@@ -430,6 +445,7 @@
 \DeclareAtomSymbol{34}{Se}
 \DeclareAtomSymbol{35}{Br}
 \DeclareAtomSymbol{36}{Kr}
+
 \DeclareAtomSymbol{37}{Rb}
 \DeclareAtomSymbol{38}{Sr}
 \DeclareAtomSymbol{39}{Y}
@@ -448,6 +464,7 @@
 \DeclareAtomSymbol{52}{Te}
 \DeclareAtomSymbol{53}{I}
 \DeclareAtomSymbol{54}{Xe}
+
 \DeclareAtomSymbol{55}{Cs}
 \DeclareAtomSymbol{56}{Ba}
 \DeclareAtomSymbol{57}{La}
@@ -480,6 +497,7 @@
 \DeclareAtomSymbol{84}{Po}
 \DeclareAtomSymbol{85}{At}
 \DeclareAtomSymbol{86}{Rn}
+
 \DeclareAtomSymbol{87}{Fr}
 \DeclareAtomSymbol{88}{Ra}
 \DeclareAtomSymbol{89}{Ac}
@@ -511,6 +529,7 @@
 
 \DeclareAtomIsotopes{1}  {!1,2,3}
 \DeclareAtomIsotopes{2}  {3,!4,5,6}
+
 \DeclareAtomIsotopes{3}  {3,!4,5,6}
 \DeclareAtomIsotopes{4}  {7,8,!9,10,11}
 \DeclareAtomIsotopes{5}  {8,9,10,!11,12,13}
@@ -519,6 +538,7 @@
 \DeclareAtomIsotopes{8}  {15,!16,17,18}
 \DeclareAtomIsotopes{9}  {17,18,!19,20,21}
 \DeclareAtomIsotopes{10} {18,19,!20,21,22,23,24}
+
 \DeclareAtomIsotopes{11} {21,22,!23,24,25}
 \DeclareAtomIsotopes{12} {23,!24,25,26,27,28}
 \DeclareAtomIsotopes{13} {25,26,!27,28,29}
@@ -527,6 +547,7 @@
 \DeclareAtomIsotopes{16} {30,31,!32,33,34,35,36,37,38,39,40}
 \DeclareAtomIsotopes{17} {!35,36,37}
 \DeclareAtomIsotopes{18} {33,34,35,36,37,38,39,!40,41,42}
+
 \DeclareAtomIsotopes{19} {38,!39,40,41,42,43}
 \DeclareAtomIsotopes{20} {!40,41,42,43,44,45,46,47,48}
 \DeclareAtomIsotopes{21} {43,44,!45,46,47,48,49}
@@ -545,6 +566,7 @@
 \DeclareAtomIsotopes{34} {74,75,76,77,78,79,!80,81,82}
 \DeclareAtomIsotopes{35} {77,78,!79,80,81,82,83}
 \DeclareAtomIsotopes{36} {78,79,80,81,82,83,!84,85,86}
+
 \DeclareAtomIsotopes{37} {83,84,!85,86,87,88,89}
 \DeclareAtomIsotopes{38} {82,83,84,85,86,87,!88,89,90}
 \DeclareAtomIsotopes{39} {87,88,!89,90,91}
@@ -563,6 +585,7 @@
 \DeclareAtomIsotopes{52} {120,121,122,123,124,125,126,127,128,129,!130}
 \DeclareAtomIsotopes{53} {123,124,125,126,!127,128,129,130,131}
 \DeclareAtomIsotopes{54} {124,125,126,127,128,129,130,131,!132,133,134,135,136}
+
 \DeclareAtomIsotopes{55} {131,132,!133,134,135,136,137}
 \DeclareAtomIsotopes{56} {128,129,130,131,132,133,134,135,136,137,!138,139,140}
 \DeclareAtomIsotopes{57} {135,136,137,138,!139,140,141}
@@ -596,6 +619,7 @@
 % no main isotope:
 \DeclareAtomIsotopes{85} {209,210,211,212,213,214,215,218,219,220}
 \DeclareAtomIsotopes{86} {210,211,212,217,218,219,220,221,!222,223,224}
+
 \DeclareAtomIsotopes{87} {222,!223}
 \DeclareAtomIsotopes{88} {223,224,225,!226,227,228}
 \DeclareAtomIsotopes{89} {224,225,226,!227,228}
@@ -665,5 +689,7 @@ HISTORY:
 2015/06/14 v0.1  - first public version
 2015/06/30 v0.1a - bug fix in loading the fallback translations
 2015/10/15 v0.1b - minor fix in French translations
-
+2015/11/24 v0.1c - small code improvements
+2016/04/17 v0.1d - minor fix in French translations
+                 - new macro \mainelementisotope
 

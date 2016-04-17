@@ -1,15 +1,15 @@
 --------------------------------------------------------------------------
-the ELEMENTS package v0.1b
+the ELEMENTS package v0.1d
 
   retrieve different properties of chemical elements
 
-2015/10/15
+2016/04/17
 --------------------------------------------------------------------------
 Clemens Niederberger
 Web:    https://github.com/cgnieder/elements/
 E-Mail: contact@mychemistry.eu
 --------------------------------------------------------------------------
-Copyright 2015 Clemens Niederberger
+Copyright 2015-2016 Clemens Niederberger
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
