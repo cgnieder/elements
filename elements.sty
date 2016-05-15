@@ -25,8 +25,8 @@
 % If you have any ideas, questions, suggestions or bugs to report, please
 % feel free to contact me.
 % --------------------------------------------------------------------------
-\newcommand*\@elements@date{2016/04/17}
-\newcommand*\@elements@version{v0.1d}
+\newcommand*\@elements@date{2016/05/16}
+\newcommand*\@elements@version{v0.2}
 \newcommand*\@elements@description{properties of chemical elements}
 
 \ProvidesPackage{elements}[%
@@ -257,22 +257,17 @@
 \newrobustcmd*\@elements@getelconf[1]{%
   \forcsvlist{\@elements@getelconf@aux}{#1}%
 }
+
 \newrobustcmd*\@elements@getelconf@aux[1]{%
   \stepcounter{@elements@shell@number}%
   \setcounter{@elements@orbital@type}{0}%
   \@elements@parse@elconf#1+\q@stop
 }
+
 \protected\def\@elements@parse@elconf#1+#2\q@stop{%
   \eappto\@elements@current@elconf{\arabic{@elements@shell@number}}%
-  \ifcase\value{@elements@orbital@type}\relax
-    \appto\@elements@current@elconf{s}%
-  \or
-    \appto\@elements@current@elconf{p}%
-  \or
-    \appto\@elements@current@elconf{d}%
-  \or
-    \appto\@elements@current@elconf{f}%
-  \fi
+  \eappto\@elements@current@elconf
+    {\expandonce{\csname @elements@angmom@\arabic{@elements@orbital@type}\endcsname}}%
   \appto\@elements@current@elconf{^{#1}}%
   \stepcounter{@elements@orbital@type}%
   \ifblank{#2}
@@ -282,8 +277,163 @@
 
 \newrobustcmd*\@elements@write@elconf[1]{\ensuremath{#1}}
 
+% #1: type
+% #2: output (in math mode)
+\newrobustcmd*\setangularmomentum[2]{%
+  \csdef{@elements@angmom@#1}{\printangularmomentum{#2}}%
+}
+
+\setangularmomentum{0}{s}
+\setangularmomentum{1}{p}
+\setangularmomentum{2}{d}
+\setangularmomentum{3}{f}
+\setangularmomentum{4}{g}
+\setangularmomentum{5}{h}
+
+\newcommand*\printangularmomentum[1]{\mathrm{#1}}
+
 % --------------------------------------------------------------------------
-% declare electron distributions
+% extendable language settings
+\RequirePackage{translations}
+\AfterEndPreamble{
+  % this will load a file `elements_elements_<lang>.def', <lang> is a
+  % `translations' base language
+  % currently German, English, and French are available, English being the
+  % fallback; other languages are added by providing the corresponding file
+  \ifdef\@elements@language
+    {\edef\@elements@language{\@trnslt@language{\@elements@language}}}
+    {\def\@elements@language{\@trnslt@language{\@trnslt@current@language}}}
+  \InputIfFileExists
+    {elements_names_\@elements@language.def}
+    {}
+    {\input{elements_names_english.def}}
+}
+
+% ==========================================================================
+% define the elements properties for elements 1 -- 112
+% 
+% declare atom symbols:
+\DeclareAtomSymbol{1}{H}
+\DeclareAtomSymbol{2}{He}
+
+\DeclareAtomSymbol{3}{Li}
+\DeclareAtomSymbol{4}{Be}
+\DeclareAtomSymbol{5}{B}
+\DeclareAtomSymbol{6}{C}
+\DeclareAtomSymbol{7}{N}
+\DeclareAtomSymbol{8}{O}
+\DeclareAtomSymbol{9}{F}
+\DeclareAtomSymbol{10}{Ne}
+
+\DeclareAtomSymbol{11}{Na}
+\DeclareAtomSymbol{12}{Mg}
+\DeclareAtomSymbol{13}{Al}
+\DeclareAtomSymbol{14}{Si}
+\DeclareAtomSymbol{15}{P}
+\DeclareAtomSymbol{16}{S}
+\DeclareAtomSymbol{17}{Cl}
+\DeclareAtomSymbol{18}{Ar}
+
+\DeclareAtomSymbol{19}{K}
+\DeclareAtomSymbol{20}{Ca}
+\DeclareAtomSymbol{21}{Sc}
+\DeclareAtomSymbol{22}{Ti}
+\DeclareAtomSymbol{23}{V}
+\DeclareAtomSymbol{24}{Cr}
+\DeclareAtomSymbol{25}{Mn}
+\DeclareAtomSymbol{26}{Fe}
+\DeclareAtomSymbol{27}{Co}
+\DeclareAtomSymbol{28}{Ni}
+\DeclareAtomSymbol{29}{Cu}
+\DeclareAtomSymbol{30}{Zn}
+\DeclareAtomSymbol{31}{Ga}
+\DeclareAtomSymbol{32}{Ge}
+\DeclareAtomSymbol{33}{As}
+\DeclareAtomSymbol{34}{Se}
+\DeclareAtomSymbol{35}{Br}
+\DeclareAtomSymbol{36}{Kr}
+
+\DeclareAtomSymbol{37}{Rb}
+\DeclareAtomSymbol{38}{Sr}
+\DeclareAtomSymbol{39}{Y}
+\DeclareAtomSymbol{40}{Zr}
+\DeclareAtomSymbol{41}{Nb}
+\DeclareAtomSymbol{42}{Mo}
+\DeclareAtomSymbol{43}{Tc}
+\DeclareAtomSymbol{44}{Ru}
+\DeclareAtomSymbol{45}{Rh}
+\DeclareAtomSymbol{46}{Pd}
+\DeclareAtomSymbol{47}{Ag}
+\DeclareAtomSymbol{48}{Cd}
+\DeclareAtomSymbol{49}{In}
+\DeclareAtomSymbol{50}{Sn}
+\DeclareAtomSymbol{51}{Sb}
+\DeclareAtomSymbol{52}{Te}
+\DeclareAtomSymbol{53}{I}
+\DeclareAtomSymbol{54}{Xe}
+
+\DeclareAtomSymbol{55}{Cs}
+\DeclareAtomSymbol{56}{Ba}
+\DeclareAtomSymbol{57}{La}
+\DeclareAtomSymbol{58}{Ce}
+\DeclareAtomSymbol{59}{Pr}
+\DeclareAtomSymbol{60}{Nd}
+\DeclareAtomSymbol{61}{Pm}
+\DeclareAtomSymbol{62}{Sm}
+\DeclareAtomSymbol{63}{Eu}
+\DeclareAtomSymbol{64}{Gd}
+\DeclareAtomSymbol{65}{Tb}
+\DeclareAtomSymbol{66}{Dy}
+\DeclareAtomSymbol{67}{Ho}
+\DeclareAtomSymbol{68}{Er}
+\DeclareAtomSymbol{69}{Tm}
+\DeclareAtomSymbol{70}{Yb}
+\DeclareAtomSymbol{71}{Lu}
+\DeclareAtomSymbol{72}{Hf}
+\DeclareAtomSymbol{73}{Ta}
+\DeclareAtomSymbol{74}{W}
+\DeclareAtomSymbol{75}{Re}
+\DeclareAtomSymbol{76}{Os}
+\DeclareAtomSymbol{77}{Ir}
+\DeclareAtomSymbol{78}{Pt}
+\DeclareAtomSymbol{79}{Au}
+\DeclareAtomSymbol{80}{Hg}
+\DeclareAtomSymbol{81}{Tl}
+\DeclareAtomSymbol{82}{Pb}
+\DeclareAtomSymbol{83}{Bi}
+\DeclareAtomSymbol{84}{Po}
+\DeclareAtomSymbol{85}{At}
+\DeclareAtomSymbol{86}{Rn}
+
+\DeclareAtomSymbol{87}{Fr}
+\DeclareAtomSymbol{88}{Ra}
+\DeclareAtomSymbol{89}{Ac}
+\DeclareAtomSymbol{90}{Th}
+\DeclareAtomSymbol{91}{Pa}
+\DeclareAtomSymbol{92}{U}
+\DeclareAtomSymbol{93}{Np}
+\DeclareAtomSymbol{94}{Pu}
+\DeclareAtomSymbol{95}{Am}
+\DeclareAtomSymbol{96}{Cm}
+\DeclareAtomSymbol{97}{Bk}
+\DeclareAtomSymbol{98}{Cf}
+\DeclareAtomSymbol{99}{Es}
+\DeclareAtomSymbol{100}{Fm}
+\DeclareAtomSymbol{101}{Md}
+\DeclareAtomSymbol{102}{No}
+\DeclareAtomSymbol{103}{Lr}
+\DeclareAtomSymbol{104}{Rf}
+\DeclareAtomSymbol{105}{Db}
+\DeclareAtomSymbol{106}{Sg}
+\DeclareAtomSymbol{107}{Bh}
+\DeclareAtomSymbol{108}{Hs}
+\DeclareAtomSymbol{109}{Mt}
+\DeclareAtomSymbol{110}{Ds}
+\DeclareAtomSymbol{111}{Rg}
+\DeclareAtomSymbol{112}{Cn}
+
+% --------------------------------------------------------------------------
+% declare electron distributions:
 % period 1
 \DeclareElectronDistribution{1}{1}
 \DeclareElectronDistribution{2}{2}% He
@@ -405,128 +555,7 @@
 \DeclareElectronDistribution{112}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2}
 
 % --------------------------------------------------------------------------
-% declare atom symbols
-\DeclareAtomSymbol{1}{H}
-\DeclareAtomSymbol{2}{He}
-
-\DeclareAtomSymbol{3}{Li}
-\DeclareAtomSymbol{4}{Be}
-\DeclareAtomSymbol{5}{B}
-\DeclareAtomSymbol{6}{C}
-\DeclareAtomSymbol{7}{N}
-\DeclareAtomSymbol{8}{O}
-\DeclareAtomSymbol{9}{F}
-\DeclareAtomSymbol{10}{Ne}
-
-\DeclareAtomSymbol{11}{Na}
-\DeclareAtomSymbol{12}{Mg}
-\DeclareAtomSymbol{13}{Al}
-\DeclareAtomSymbol{14}{Si}
-\DeclareAtomSymbol{15}{P}
-\DeclareAtomSymbol{16}{S}
-\DeclareAtomSymbol{17}{Cl}
-\DeclareAtomSymbol{18}{Ar}
-
-\DeclareAtomSymbol{19}{K}
-\DeclareAtomSymbol{20}{Ca}
-\DeclareAtomSymbol{21}{Sc}
-\DeclareAtomSymbol{22}{Ti}
-\DeclareAtomSymbol{23}{V}
-\DeclareAtomSymbol{24}{Cr}
-\DeclareAtomSymbol{25}{Mn}
-\DeclareAtomSymbol{26}{Fe}
-\DeclareAtomSymbol{27}{Co}
-\DeclareAtomSymbol{28}{Ni}
-\DeclareAtomSymbol{29}{Cu}
-\DeclareAtomSymbol{30}{Zn}
-\DeclareAtomSymbol{31}{Ga}
-\DeclareAtomSymbol{32}{Ge}
-\DeclareAtomSymbol{33}{As}
-\DeclareAtomSymbol{34}{Se}
-\DeclareAtomSymbol{35}{Br}
-\DeclareAtomSymbol{36}{Kr}
-
-\DeclareAtomSymbol{37}{Rb}
-\DeclareAtomSymbol{38}{Sr}
-\DeclareAtomSymbol{39}{Y}
-\DeclareAtomSymbol{40}{Zr}
-\DeclareAtomSymbol{41}{Nb}
-\DeclareAtomSymbol{42}{Mo}
-\DeclareAtomSymbol{43}{Tc}
-\DeclareAtomSymbol{44}{Ru}
-\DeclareAtomSymbol{45}{Rh}
-\DeclareAtomSymbol{46}{Pd}
-\DeclareAtomSymbol{47}{Ag}
-\DeclareAtomSymbol{48}{Cd}
-\DeclareAtomSymbol{49}{In}
-\DeclareAtomSymbol{50}{Sn}
-\DeclareAtomSymbol{51}{Sb}
-\DeclareAtomSymbol{52}{Te}
-\DeclareAtomSymbol{53}{I}
-\DeclareAtomSymbol{54}{Xe}
-
-\DeclareAtomSymbol{55}{Cs}
-\DeclareAtomSymbol{56}{Ba}
-\DeclareAtomSymbol{57}{La}
-\DeclareAtomSymbol{58}{Ce}
-\DeclareAtomSymbol{59}{Pr}
-\DeclareAtomSymbol{60}{Nd}
-\DeclareAtomSymbol{61}{Pm}
-\DeclareAtomSymbol{62}{Sm}
-\DeclareAtomSymbol{63}{Eu}
-\DeclareAtomSymbol{64}{Gd}
-\DeclareAtomSymbol{65}{Tb}
-\DeclareAtomSymbol{66}{Dy}
-\DeclareAtomSymbol{67}{Ho}
-\DeclareAtomSymbol{68}{Er}
-\DeclareAtomSymbol{69}{Tm}
-\DeclareAtomSymbol{70}{Yb}
-\DeclareAtomSymbol{71}{Lu}
-\DeclareAtomSymbol{72}{Hf}
-\DeclareAtomSymbol{73}{Ta}
-\DeclareAtomSymbol{74}{W}
-\DeclareAtomSymbol{75}{Re}
-\DeclareAtomSymbol{76}{Os}
-\DeclareAtomSymbol{77}{Ir}
-\DeclareAtomSymbol{78}{Pt}
-\DeclareAtomSymbol{79}{Au}
-\DeclareAtomSymbol{80}{Hg}
-\DeclareAtomSymbol{81}{Tl}
-\DeclareAtomSymbol{82}{Pb}
-\DeclareAtomSymbol{83}{Bi}
-\DeclareAtomSymbol{84}{Po}
-\DeclareAtomSymbol{85}{At}
-\DeclareAtomSymbol{86}{Rn}
-
-\DeclareAtomSymbol{87}{Fr}
-\DeclareAtomSymbol{88}{Ra}
-\DeclareAtomSymbol{89}{Ac}
-\DeclareAtomSymbol{90}{Th}
-\DeclareAtomSymbol{91}{Pa}
-\DeclareAtomSymbol{92}{U}
-\DeclareAtomSymbol{93}{Np}
-\DeclareAtomSymbol{94}{Pu}
-\DeclareAtomSymbol{95}{Am}
-\DeclareAtomSymbol{96}{Cm}
-\DeclareAtomSymbol{97}{Bk}
-\DeclareAtomSymbol{98}{Cf}
-\DeclareAtomSymbol{99}{Es}
-\DeclareAtomSymbol{100}{Fm}
-\DeclareAtomSymbol{101}{Md}
-\DeclareAtomSymbol{102}{No}
-\DeclareAtomSymbol{103}{Lr}
-\DeclareAtomSymbol{104}{Rf}
-\DeclareAtomSymbol{105}{Db}
-\DeclareAtomSymbol{106}{Sg}
-\DeclareAtomSymbol{107}{Bh}
-\DeclareAtomSymbol{108}{Hs}
-\DeclareAtomSymbol{109}{Mt}
-\DeclareAtomSymbol{110}{Ds}
-\DeclareAtomSymbol{111}{Rg}
-\DeclareAtomSymbol{112}{Cn}
-
-% --------------------------------------------------------------------------
-
+% declare isotope lists:
 \DeclareAtomIsotopes{1}  {!1,2,3}
 \DeclareAtomIsotopes{2}  {3,!4,5,6}
 
@@ -667,22 +696,6 @@
 \DeclareAtomIsotopes{112}{277,283,285}
 
 % --------------------------------------------------------------------------
-% extendable language settings
-\RequirePackage{translations}
-\AfterEndPreamble{
-  % this will load a file `elements_elements_<lang>.def', <lang> is a
-  % `translations' base language
-  % currently German, English, and French are available, English being the
-  % fallback; other languages are added by providing the corresponding file
-  \ifdef\@elements@language
-    {\edef\@elements@language{\@trnslt@language{\@elements@language}}}
-    {\def\@elements@language{\@trnslt@language{\@trnslt@current@language}}}
-  \InputIfFileExists
-    {elements_names_\@elements@language.def}
-    {}
-    {\input{elements_names_english.def}}
-}
-
 \endinput
 
 HISTORY:
@@ -692,4 +705,5 @@ HISTORY:
 2015/11/24 v0.1c - small code improvements
 2016/04/17 v0.1d - minor fix in French translations
                  - new macro \mainelementisotope
-
+2016/05/15 v0.2  - new macro \setangularmomentum
+                 - new macro \printangularmomentum
