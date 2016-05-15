@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------
-the ELEMENTS package v0.1d
+the ELEMENTS package v0.2
 
   retrieve different properties of chemical elements
 
-2016/04/17
+2016/05/15
 --------------------------------------------------------------------------
 Clemens Niederberger
 Web:    https://github.com/cgnieder/elements/
@@ -27,7 +27,7 @@ The elements package consists of the files
  - elements.sty
  - elements_en.tex, elements_en.pdf
  - elements_names_english.def, elements_names_german.def,
-   elements_names_french.def
+   elements_names_french.def, elements_names_spanish.def
  - README
 --------------------------------------------------------------------------
 If you have any ideas, questions, suggestions or bugs to report, please
