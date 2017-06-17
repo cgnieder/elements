@@ -92,7 +92,7 @@
 \DeclareAtomName{68}{Erbium}
 \DeclareAtomName{69}{Thulium}
 \DeclareAtomName{70}{Ytterbium}
-\DeclareAtomName[Lutetium]{71}{Lut\'etium}
+\DeclareAtomName[Lutecium]{71}{Lut\'ecium}
 \DeclareAtomName{72}{Hafnium}
 \DeclareAtomName{73}{Tantale}
 \DeclareAtomName[Tungstene]{74}{Tungst\`ene}
