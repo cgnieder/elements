@@ -1,0 +1,147 @@
+% --------------------------------------------------------------------------
+% the ELEMENTS package
+% 
+%   retrieve different properties of chemical elements
+% 
+% --------------------------------------------------------------------------
+% Clemens Niederberger
+% Web:    https://github.com/cgnieder/elements/
+% E-Mail: contact@mychemistry.eu
+% --------------------------------------------------------------------------
+% Copyright 2015--2019 Clemens Niederberger
+% 
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% 
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Clemens Niederberger.
+% 
+% Portuguese translation added by Phelype Oleinik
+%   from https://www.areaseg.com/sinais/elementos.html
+% --------------------------------------------------------------------------
+\DeclareAtomName[Hidrogenio]{001}{Hidrog\^enio}
+\DeclareAtomName[Helio]{002}{H\'elio}
+\DeclareAtomName[Litio]{003}{L{\'\i}tio}
+\DeclareAtomName[Berilio]{004}{Ber{\'\i}lio}
+\DeclareAtomName{005}{Boro}
+\DeclareAtomName{006}{Carbono}
+\DeclareAtomName[Nitrogenio]{007}{Nitrog\^enio}
+\DeclareAtomName[Oxigenio]{008}{Oxig\^enio}
+\DeclareAtomName[Fluor]{009}{Fl\'uor}
+\DeclareAtomName[Neonio]{010}{Ne\^onio}
+\DeclareAtomName[Sodio]{011}{S\'odio}
+\DeclareAtomName[Magnesio]{012}{Magn\'esio}
+\DeclareAtomName[Aluminio]{013}{Alum{\'\i}nio}
+\DeclareAtomName[Silicio]{014}{Sil{\'\i}cio}
+\DeclareAtomName[Fosforo]{015}{F\'osforo}
+\DeclareAtomName{016}{Enxofre}
+\DeclareAtomName{017}{Cloro}
+\DeclareAtomName[Argonio]{018}{Arg\^onio}
+\DeclareAtomName[Potassio]{019}{Pot\'assio}
+\DeclareAtomName[Calcio]{020}{C\'alcio}
+\DeclareAtomName[Escandio]{021}{Esc\^andio}
+\DeclareAtomName[Titanio]{022}{Tit\^anio}
+\DeclareAtomName[Vanadio]{023}{Van\'adio}
+\DeclareAtomName{024}{Cromo}
+\DeclareAtomName[Manganes]{025}{Mangan\^es}
+\DeclareAtomName{026}{Ferro}
+\DeclareAtomName{027}{Cobalto}
+\DeclareAtomName[Niquel]{028}{N{\'\i}quel}
+\DeclareAtomName{029}{Cobre}
+\DeclareAtomName{030}{Zinco}
+\DeclareAtomName[Galio]{031}{G\'alio}
+\DeclareAtomName[Germanio]{032}{Germ\^anio}
+\DeclareAtomName[Arsenio]{033}{Ars\'enio}
+\DeclareAtomName[Selenio]{034}{Sel\'enio}
+\DeclareAtomName{035}{Bromo}
+\DeclareAtomName[Criptonio]{036}{Cript\^onio}
+\DeclareAtomName[Rubidio]{037}{Rub{\'\i}dio}
+\DeclareAtomName[Estroncio]{038}{Estr\^oncio}
+\DeclareAtomName[Itrio]{039}{\'Itrio}
+\DeclareAtomName[Zirconio]{040}{Zirc\^onio}
+\DeclareAtomName[Niobio]{041}{Ni\'obio}
+\DeclareAtomName[Molibdenio]{042}{Molibd\'enio}
+\DeclareAtomName[Tecnecio]{043}{Tecn\'ecio}
+\DeclareAtomName[Rutenio]{044}{Rut\^enio}
+\DeclareAtomName[Rodio]{045}{R\'odio}
+\DeclareAtomName[Paladio]{046}{Pal\'adio}
+\DeclareAtomName{047}{Prata}
+\DeclareAtomName[Cadmio]{048}{C\'admio}
+\DeclareAtomName[Indio]{049}{\'Indio}
+\DeclareAtomName{050}{Estanho}
+\DeclareAtomName[Antimonio]{051}{Antim\^onio}
+\DeclareAtomName[Telurio]{052}{Tel\'urio}
+\DeclareAtomName{053}{Iodo}
+\DeclareAtomName[Xenonio]{054}{Xen\^onio}
+\DeclareAtomName[Cesio]{055}{C\'esio}
+\DeclareAtomName[Bario]{056}{B\'ario}
+\DeclareAtomName[Lantanio]{057}{Lant\^anio}
+\DeclareAtomName[Cerio]{058}{C\'erio}
+\DeclareAtomName[Praseodimio]{059}{Praseod{\'\i}mio}
+\DeclareAtomName[Neodimio]{060}{Neod{\'\i}mio}
+\DeclareAtomName[Promecio]{061}{Prom\'ecio}
+\DeclareAtomName[Samario]{062}{Sam\'ario}
+\DeclareAtomName[Europio]{063}{Eur\'opio}
+\DeclareAtomName[Gadolinio]{064}{Gadol{\'\i}nio}
+\DeclareAtomName[Terbio]{065}{T\'erbio}
+\DeclareAtomName[Disprosio]{066}{Dispr\'osio}
+\DeclareAtomName[Holmio]{067}{H\'olmio}
+\DeclareAtomName[Erbio]{068}{\'Erbio}
+\DeclareAtomName[Tulio]{069}{T\'ulio}
+\DeclareAtomName[Iterbio]{070}{It\'erbio}
+\DeclareAtomName[Lutecio]{071}{Lut\'ecio}
+\DeclareAtomName[Hafnio]{072}{H\'afnio}
+\DeclareAtomName[Tantalo]{073}{T\^antalo}
+\DeclareAtomName[Tungstenio]{074}{Tungst\^enio}
+\DeclareAtomName[Renio]{075}{R\^enio}
+\DeclareAtomName[Osmio]{076}{\'Osmio}
+\DeclareAtomName[Iridio]{077}{Ir{\'\i}dio}
+\DeclareAtomName{078}{Platina}
+\DeclareAtomName{079}{Ouro}
+\DeclareAtomName[Mercurio]{080}{Merc\'urio}
+\DeclareAtomName[Talio]{081}{T\'alio}
+\DeclareAtomName{082}{Chumbo}
+\DeclareAtomName{083}{Bismuto}
+\DeclareAtomName[Polonio]{084}{Pol\^onio}
+\DeclareAtomName[Astatinio]{085}{Astat{\'\i}nio}
+\DeclareAtomName[Radonio]{086}{Rad\^onio}
+\DeclareAtomName[Francio]{087}{Fr\^ancio}
+\DeclareAtomName[Radio]{088}{R\'adio}
+\DeclareAtomName[Actinio]{089}{Act{\'\i}nio}
+\DeclareAtomName[Torio]{090}{T\'orio}
+\DeclareAtomName[Protactinio]{091}{Protact{\'\i}nio}
+\DeclareAtomName[Uranio]{092}{Ur\^anio}
+\DeclareAtomName[Netunio]{093}{Net\'unio}
+\DeclareAtomName[Plutonio]{094}{Plut\^onio}
+\DeclareAtomName[Americio]{095}{Amer{\'\i}cio}
+\DeclareAtomName[Curio]{096}{C\'urio}
+\DeclareAtomName[Berquelio]{097}{Berqu\'elio}
+\DeclareAtomName[Californio]{098}{Calif\'ornio}
+\DeclareAtomName[Einstenio]{099}{Einst\'enio}
+\DeclareAtomName[Fermio]{100}{F\'ermio}
+\DeclareAtomName[Mendelevio]{101}{Mendel\'evio}
+\DeclareAtomName[Nobelio]{102}{Nob\'elio}
+\DeclareAtomName[Laurencio]{103}{Laur\^encio}
+\DeclareAtomName[Rutherfordio]{104}{Rutherf\'ordio}
+\DeclareAtomName[Dubnio]{105}{D\'ubnio}
+\DeclareAtomName[Seaborgio]{106}{Seab\'orgio}
+\DeclareAtomName[Bohrio]{107}{B\'ohrio}
+\DeclareAtomName[Hassio]{108}{H\'assio}
+\DeclareAtomName[Meitnerio]{109}{Meitn\'erio}
+\DeclareAtomName{110}{Darmstadtio}
+\DeclareAtomName[Roentgenio]{111}{Roentg\'enio}
+\DeclareAtomName[Copernicio]{112}{Copern{\'\i}cio}
+\DeclareAtomName[Niponio]{113}{Nip\'onio}
+\DeclareAtomName[Flerovio]{114}{Fler\'ovio}
+\DeclareAtomName[Moscovio]{115}{Mosc\'ovio}
+\DeclareAtomName[Livermorio]{116}{Liverm\'orio}
+\DeclareAtomName{117}{Tenesso}
+\DeclareAtomName[Oganesson]{118}{Ogan\'esson}
+
+\endinput

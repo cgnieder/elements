@@ -8,7 +8,7 @@
 % Web:    https://github.com/cgnieder/elements/
 % E-Mail: contact@mychemistry.eu
 % --------------------------------------------------------------------------
-% Copyright 2015--2018 Clemens Niederberger
+% Copyright 2011--2019 Clemens Niederberger
 % 
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -25,8 +25,8 @@
 % If you have any ideas, questions, suggestions or bugs to report, please
 % feel free to contact me.
 % --------------------------------------------------------------------------
-\newcommand*\@elements@date{2018/01/31}
-\newcommand*\@elements@version{v0.2c}
+\newcommand*\@elements@date{2019/10/14}
+\newcommand*\@elements@version{v0.3}
 \newcommand*\@elements@description{properties of chemical elements}
 
 \ProvidesPackage{elements}[%
@@ -306,7 +306,7 @@
   \InputIfFileExists
     {elements_names_\@elements@language.def}
     {}
-    {\input{elements_names_english.def}}
+    {\input{elements_names_english.def}}  
 }
 
 % ==========================================================================
@@ -431,6 +431,12 @@
 \DeclareAtomSymbol{110}{Ds}
 \DeclareAtomSymbol{111}{Rg}
 \DeclareAtomSymbol{112}{Cn}
+\DeclareAtomSymbol{113}{Nh}
+\DeclareAtomSymbol{114}{Fl}
+\DeclareAtomSymbol{115}{Mc}
+\DeclareAtomSymbol{116}{Lv}
+\DeclareAtomSymbol{117}{Ts}
+\DeclareAtomSymbol{118}{Og}
 
 % --------------------------------------------------------------------------
 % declare electron distributions:
@@ -553,6 +559,12 @@
 \DeclareElectronDistribution{110}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+9,1}
 \DeclareElectronDistribution{111}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,1}
 \DeclareElectronDistribution{112}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2}
+\DeclareElectronDistribution{113}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2+1}
+\DeclareElectronDistribution{114}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2+2}
+\DeclareElectronDistribution{115}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2+3}
+\DeclareElectronDistribution{116}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2+4}
+\DeclareElectronDistribution{117}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2+5}
+\DeclareElectronDistribution{118}{2,2+6,2+6+10,2+6+10+14,2+6+10+14,2+6+10,2+6}
 
 % --------------------------------------------------------------------------
 % declare isotope lists:
@@ -694,6 +706,18 @@
 \DeclareAtomIsotopes{111}{272,274,278,279,280}
 % no main isotope:
 \DeclareAtomIsotopes{112}{277,283,285}
+% no main isotope:
+\DeclareAtomIsotopes{113}{283,284}
+% no main isotope:
+\DeclareAtomIsotopes{114}{285,286,287,288,289}
+% no main isotope:
+\DeclareAtomIsotopes{115}{287,288,289,290,291}
+% no main isotope:
+\DeclareAtomIsotopes{116}{290,291,292,293}
+% no main isotope:
+\DeclareAtomIsotopes{117}{291,929,293,294}
+% no main isotope:
+\DeclareAtomIsotopes{118}{294}
 
 % --------------------------------------------------------------------------
 \endinput
@@ -712,3 +736,5 @@ HISTORY:
                  - correct wrong isotope lists
 2017/06/17 v0.2b - fix typos in French translations
 2018/01/31 v0.2c - fix typos in German translations
+2019/10/14 v0.3  - add Portuguese language -- thanks to Phelype Oleinik
+                 - add elements 113 to 118
