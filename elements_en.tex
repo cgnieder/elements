@@ -71,7 +71,7 @@
     This package provides means for retrieving properties of chemical elements
     like atomic number, element symbol, element name, electron distribution or
     isotope number.  Properties are defined for the elements up to the atomic
-    number~112.
+    number~118.
 
     This package is a spin-off of the package \pkg{bohr}~\cite{pkg:bohr} by
     the same author.
@@ -271,7 +271,7 @@ Currently the following languages are supported:
   \item German
   \item French
   \item \sinceversion{0.2}Spanish
-  \item \sinceversion{0.2d}Portuguese
+  \item \sinceversion{0.3}Portuguese and Brazilian Portuguese
 \end{itemize}
 
 \addsec{Element Properties}
@@ -292,7 +292,7 @@ is printed. For those interested: the code used to get the table is as follows
     Number & Symbol & Name & Main Isotope & Electron Configuration \\
   \midrule
   \endhead
-  \whileboolexpr{test{\ifnumless{\value{element}}{113}}}
+  \whileboolexpr{test{\ifnumless{\value{element}}{119}}}
     {
       \theelement &
       \elementsymbol{\arabic{element}} &
@@ -316,7 +316,7 @@ is printed. For those interested: the code used to get the table is as follows
     Number & Symbol & Name & Main Isotope & Electron Configuration \\
   \midrule
   \endhead
-  \whileboolexpr{test{\ifnumless{\value{element}}{113}}}
+  \whileboolexpr{test{\ifnumless{\value{element}}{119}}}
     {
       \theelement &
       \elementsymbol{\arabic{element}} &

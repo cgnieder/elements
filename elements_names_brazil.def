@@ -1,0 +1,146 @@
+% --------------------------------------------------------------------------
+% the ELEMENTS package
+% 
+%   retrieve different properties of chemical elements
+% 
+% --------------------------------------------------------------------------
+% Clemens Niederberger
+% Web:    https://github.com/cgnieder/elements/
+% E-Mail: contact@mychemistry.eu
+% --------------------------------------------------------------------------
+% Copyright 2015--2019 Clemens Niederberger
+% 
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% 
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Clemens Niederberger.
+% 
+% Brazilian Portuguese translation added by GRSousaJr
+% --------------------------------------------------------------------------
+\DeclareAtomName[Hidrogenio]{1}{Hidrog\^enio}
+\DeclareAtomName[Helio]{2}{H\'elio}
+\DeclareAtomName[Litio]{3}{L\'itio}
+\DeclareAtomName[Berilio]{4}{Ber\'ilio}
+\DeclareAtomName[Boro]{5}{Boro}
+\DeclareAtomName[Carbono]{6}{Carbono}
+\DeclareAtomName[Nitrogenio]{7}{Nitrog\^enio}
+\DeclareAtomName[Oxigenio]{8}{Oxig\^enio}
+\DeclareAtomName[Fluor]{9}{Fl\'uor}
+\DeclareAtomName[Neonio]{10}{Ne\^onio}
+\DeclareAtomName[Sodio]{11}{S\'odio}
+\DeclareAtomName[Magnesio]{12}{Magn\'esio}
+\DeclareAtomName[Aluminio]{13}{Alum\'inio}
+\DeclareAtomName[Silicio]{14}{Sil\'icio}
+\DeclareAtomName[Fosforo]{15}{F\'osforo}
+\DeclareAtomName[Enxofre]{16}{Enxofre}
+\DeclareAtomName[Cloro]{17}{Cloro}
+\DeclareAtomName[Argonio]{18}{Arg\^onio}
+\DeclareAtomName[Potassio]{19}{Pot\'assio}
+\DeclareAtomName[Calcio]{20}{C\'alcio}
+\DeclareAtomName[Escandio]{21}{Esc\^andio}
+\DeclareAtomName[Titanio]{22}{Tit\^anio}
+\DeclareAtomName[Vanadio]{23}{Van\'adio}
+\DeclareAtomName[Cromio]{24}{Cr\^omio}
+\DeclareAtomName[Manganes]{25}{Mangan\^es}
+\DeclareAtomName[Ferro]{26}{Ferro}
+\DeclareAtomName[Cobalto]{27}{Cobalto}
+\DeclareAtomName[Niquel]{28}{N\'iquel}
+\DeclareAtomName[Cobre]{29}{Cobre}
+\DeclareAtomName[Zinco]{30}{Zinco}
+\DeclareAtomName[Galio]{31}{G\'alio}
+\DeclareAtomName[Germanio]{32}{Germ\^anio}
+\DeclareAtomName[Arsenio]{33}{Ars\^enio}
+\DeclareAtomName[Selenio]{34}{Sel\^enio}
+\DeclareAtomName[Bromo]{35}{Bromo}
+\DeclareAtomName[Criptonio]{36}{Cript\^onio}
+\DeclareAtomName[Rubidio]{37}{Rub\'idio}
+\DeclareAtomName[Estroncio]{38}{Estr\^oncio}
+\DeclareAtomName[Itrio]{39}{\'Itrio}
+\DeclareAtomName[Zirconio]{40}{Zirc\^onio}
+\DeclareAtomName[Niobio]{41}{Ni\'obio}
+\DeclareAtomName[Molibdenio]{42}{Molibd\^enio}
+\DeclareAtomName[Tecnecio]{43}{Tecn\'ecio}
+\DeclareAtomName[Rutenio]{44}{Rut\^enio}
+\DeclareAtomName[Rodio]{45}{R\'odio}
+\DeclareAtomName[Paladio]{46}{Pal\'adio}
+\DeclareAtomName[Prata]{47}{Prata}
+\DeclareAtomName[Cadmio]{48}{C\'admio}
+\DeclareAtomName[Indio]{49}{\'Indio}
+\DeclareAtomName[Estanho]{50}{Estanho}
+\DeclareAtomName[Antimonio]{51}{Antim\^onio}
+\DeclareAtomName[Telurio]{52}{Tel\'urio}
+\DeclareAtomName[Iodo]{53}{Iodo}
+\DeclareAtomName[Xenonio]{54}{Xen\^onio}
+\DeclareAtomName[Cesio]{55}{C\'esio}
+\DeclareAtomName[Bario]{56}{B\'ario}
+\DeclareAtomName[Lantanio]{57}{Lant\^anio}
+\DeclareAtomName[Cerio]{58}{C\'erio}
+\DeclareAtomName[Praseodimio]{59}{Praseod\'imio}
+\DeclareAtomName[Neodimio]{60}{Neod\'imio}
+\DeclareAtomName[Promecio]{61}{Prom\'ecio}
+\DeclareAtomName[Samario]{62}{Sam\'ario}
+\DeclareAtomName[Europio]{63}{Eur\'opio}
+\DeclareAtomName[Gadolinio]{64}{Gadol\'inio}
+\DeclareAtomName[Terbio]{65}{T\'erbio}
+\DeclareAtomName[Disprosio]{66}{Dispr\'osio}
+\DeclareAtomName[Holmio]{67}{H\'olmio}
+\DeclareAtomName[Erbio]{68}{\'Erbio}
+\DeclareAtomName[Tulio]{69}{T\'ulio}
+\DeclareAtomName[Iterbio]{70}{It\'erbio}
+\DeclareAtomName[Lutecio]{71}{Lut\'ecio}
+\DeclareAtomName[Hafnio]{72}{H\'afnio}
+\DeclareAtomName[Tantalo]{73}{T\^antalo}
+\DeclareAtomName[Tungstenio]{74}{Tungst\^enio}
+\DeclareAtomName[Renio]{75}{R\^enio}
+\DeclareAtomName[Osmio]{76}{\'Osmio}
+\DeclareAtomName[Iridio]{77}{Ir\'idio}
+\DeclareAtomName[Platina]{78}{Platina}
+\DeclareAtomName[Ouro]{79}{Ouro}
+\DeclareAtomName[Mercurio]{80}{Merc\'urio}
+\DeclareAtomName[Talio]{81}{T\'alio}
+\DeclareAtomName[Chumbo]{82}{Chumbo}
+\DeclareAtomName[Bismuto]{83}{Bismuto}
+\DeclareAtomName[Polonio]{84}{Pol\^onio}
+\DeclareAtomName[Astato]{85}{Astato}
+\DeclareAtomName[Radonio]{86}{Rad\^onio}
+\DeclareAtomName[Francio]{87}{Fr\^ancio}
+\DeclareAtomName[Radio]{88}{R\'adio}
+\DeclareAtomName[Actinio]{89}{Act\'inio}
+\DeclareAtomName[Torio]{90}{T\'orio}
+\DeclareAtomName[Protactinio]{91}{Protact\'inio}
+\DeclareAtomName[Uranio]{92}{Ur\^anio}
+\DeclareAtomName[Netunio]{93}{Net\'unio}
+\DeclareAtomName[Plutonio]{94}{Plut\^onio}
+\DeclareAtomName[Americio]{95}{Amer\'icio}
+\DeclareAtomName[Curio]{96}{C\'urio}
+\DeclareAtomName[Berquelio]{97}{Berqu\'elio}
+\DeclareAtomName[Californio]{98}{Calif\'ornio}
+\DeclareAtomName[Einstenio]{99}{Einst\^enio}
+\DeclareAtomName[Fermio]{100}{F\'ermio}
+\DeclareAtomName[Mendelevio]{101}{Mendel\'evio}
+\DeclareAtomName[Nobelio]{102}{Nob\'elio}
+\DeclareAtomName[Laurencio]{103}{Laur\^encio}
+\DeclareAtomName[Rutherfordio]{104}{Rutherf\'ordio}
+\DeclareAtomName[Dubnio]{105}{D\'ubnio}
+\DeclareAtomName[Seaborgio]{106}{Seab\'orgio}
+\DeclareAtomName[Bohrio]{107}{B\'ohrio}
+\DeclareAtomName[Hassio]{108}{H\'assio}
+\DeclareAtomName[Meitnerio]{109}{Meitn\'erio}
+\DeclareAtomName[Darmstacio]{110}{Darmst\'adio}
+\DeclareAtomName[Roentgenio]{111}{Roentg\^enio}
+\DeclareAtomName[Copernicio]{112}{Copern\'icio}
+\DeclareAtomName[Nihonio]{113}{Nih\^onio}
+\DeclareAtomName[Flerovio]{114}{Fler\'ovio}
+\DeclareAtomName[Moscovio]{115}{Mosc\'ovio}
+\DeclareAtomName[Livermorio]{116}{Liverm\'orio}
+\DeclareAtomName[Tennesso]{117}{Tennesso}
+\DeclareAtomName[Oganessonio]{118}{Oganess\^onio}
+
+\endinput
