@@ -296,17 +296,23 @@
 % extendable language settings
 \RequirePackage{translations}
 \AfterEndPreamble{
-  % this will load a file `elements_elements_<lang>.def', <lang> is a
-  % `translations' base language
-  % currently German, English, and French are available, English being the
-  % fallback; other languages are added by providing the corresponding file
+  % this will load a file `elements_names_<lang>.def', <lang> is a
+  % `translations' base language or dialect
+  % currently German, English, French, Portuguese, and Spanish are available,
+  % English being the fallback; other languages are added by providing the
+  % corresponding file
   \ifdef\@elements@language
-    {\edef\@elements@language{\@trnslt@language{\@elements@language}}}
-    {\def\@elements@language{\@trnslt@language{\@trnslt@current@language}}}
+    {\edef\@elements@language{\@trnslt@language\@elements@language}}
+    {\def\@elements@language{\@trnslt@language\@trnslt@current@language}}
   \InputIfFileExists
     {elements_names_\@elements@language.def}
     {}
-    {\input{elements_names_english.def}}  
+    {
+      \InputIfFileExists
+        {elements_names_\@trnslt@dialect@of\@elements@language.def}
+        {}
+        {\input{elements_names_english.def}}
+    }
 }
 
 % ==========================================================================
