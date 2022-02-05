@@ -65,12 +65,12 @@
 \DeclareAtomName{39}{Yttrium}
 \DeclareAtomName{40}{Zirkonium}
 \DeclareAtomName{41}{Niobium}
-\DeclareAtomName{42}{Molybd\ae n}
+\DeclareAtomName[Molybdaen]{42}{Molybd\ae n}
 \DeclareAtomName{43}{Technetium}
 \DeclareAtomName{44}{Ruthenium}
 \DeclareAtomName{45}{Rhodium}
 \DeclareAtomName{46}{Palladium}
-\DeclareAtomName{47}{S\o lv}
+\DeclareAtomName[Soelv]{47}{S\o lv}
 \DeclareAtomName{48}{Kadmium}
 \DeclareAtomName{49}{Indium}
 \DeclareAtomName{50}{Tin}
@@ -78,7 +78,7 @@
 \DeclareAtomName{52}{Tellur}
 \DeclareAtomName{53}{Jod}
 \DeclareAtomName{54}{Xenon}
-\DeclareAtomName{55}{C\ae sium}
+\DeclareAtomName[Caesium]{55}{C\ae sium}
 \DeclareAtomName{56}{Barium}
 \DeclareAtomName{57}{Lantan}
 \DeclareAtomName{58}{Cerium}
@@ -103,7 +103,7 @@
 \DeclareAtomName{77}{Iridium}
 \DeclareAtomName{78}{Platin}
 \DeclareAtomName{79}{Guld}
-\DeclareAtomName{80}{Kviks\o lv}
+\DeclareAtomName[Kviksoelv]{80}{Kviks\o lv}
 \DeclareAtomName{81}{Tallium}
 \DeclareAtomName{82}{Bly}
 \DeclareAtomName{83}{Bismut}
@@ -134,7 +134,7 @@
 \DeclareAtomName{108}{Hassium}
 \DeclareAtomName{109}{Meitnerium}
 \DeclareAtomName{110}{Darmstadtium}
-\DeclareAtomName{111}{R\o ntgenium}
+\DeclareAtomName[Roentgenium]{111}{R\o ntgenium}
 \DeclareAtomName{112}{Kopernikium}
 \DeclareAtomName{113}{Nihonium}
 \DeclareAtomName{114}{Flerovium}
