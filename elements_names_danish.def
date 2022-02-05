@@ -8,7 +8,7 @@
 % Web:    https://github.com/cgnieder/elements/
 % E-Mail: clemens@cnltx.de
 % --------------------------------------------------------------------------
-% Copyright 2011--2022 Clemens Niederberger
+% Copyright 2015--2022 Clemens Niederberger
 % 
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -21,68 +21,70 @@
 % This work has the LPPL maintenance status `maintained'.
 % 
 % The Current Maintainer of this work is Clemens Niederberger.
+% 
+% Danish translation added by Svend Mortensen
 % --------------------------------------------------------------------------
-\DeclareAtomName[Hydrogene]{1}{Hydrog\`ene}
-\DeclareAtomName[Helium]{2}{H\'elium}
-\DeclareAtomName{3}{Lithium}
-\DeclareAtomName[Beryllium]{4}{B\'eryllium}
-\DeclareAtomName{5}{Bore}
-\DeclareAtomName{6}{Carbone}
-\DeclareAtomName{7}{Azote}
-\DeclareAtomName[Oxygene]{8}{Oxyg\`ene}
-\DeclareAtomName{9}{Fluor}
-\DeclareAtomName[Neon]{10}{N\'eon}
-\DeclareAtomName{11}{Sodium}
-\DeclareAtomName[Magnesium]{12}{Magn\'esium}
+\DeclareAtomName{1}{Hydrogen}
+\DeclareAtomName{2}{Helium}
+\DeclareAtomName{3}{Litium}
+\DeclareAtomName{4}{Beryllium}
+\DeclareAtomName{5}{Bor}
+\DeclareAtomName{6}{Karbon}
+\DeclareAtomName{7}{Nitrogen}
+\DeclareAtomName{8}{Oxygen}
+\DeclareAtomName{9}{Flour}
+\DeclareAtomName{10}{Neon}
+\DeclareAtomName{11}{Natrium}
+\DeclareAtomName{12}{Magnesium}
 \DeclareAtomName{13}{Aluminium}
 \DeclareAtomName{14}{Silicium}
-\DeclareAtomName{15}{Phosphore}
-\DeclareAtomName{16}{Soufre}
-\DeclareAtomName{17}{Chlore}
+\DeclareAtomName{15}{Fosfor}
+\DeclareAtomName{16}{Svovl}
+\DeclareAtomName{17}{Klor}
 \DeclareAtomName{18}{Argon}
-\DeclareAtomName{19}{Potassium}
-\DeclareAtomName{20}{Calcium}
+\DeclareAtomName{19}{Kalium}
+\DeclareAtomName{20}{Kalcium}
 \DeclareAtomName{21}{Scandium}
-\DeclareAtomName{22}{Titane}
+\DeclareAtomName{22}{Titan}
 \DeclareAtomName{23}{Vanadium}
-\DeclareAtomName{24}{Chrome}
-\DeclareAtomName[Manganese]{25}{Mangan\`ese}
-\DeclareAtomName{26}{Fer}
-\DeclareAtomName{27}{Cobalt}
-\DeclareAtomName{28}{Nickel}
-\DeclareAtomName{29}{Cuivre}
-\DeclareAtomName{30}{Zinc}
+\DeclareAtomName{24}{Krom}
+\DeclareAtomName{25}{Mangan}
+\DeclareAtomName{26}{Jern}
+\DeclareAtomName{27}{Kobolt}
+\DeclareAtomName{28}{Nikkel}
+\DeclareAtomName{29}{Kobber}
+\DeclareAtomName{30}{Zink}
 \DeclareAtomName{31}{Gallium}
 \DeclareAtomName{32}{Germanium}
-\DeclareAtomName{33}{Arsenic}
-\DeclareAtomName[Selenium]{34}{S\'el\'enium}
-\DeclareAtomName{35}{Brome}
+\DeclareAtomName{33}{Arsen}
+\DeclareAtomName{34}{Selen}
+\DeclareAtomName{35}{Brom}
 \DeclareAtomName{36}{Krypton}
 \DeclareAtomName{37}{Rubidium}
 \DeclareAtomName{38}{Strontium}
 \DeclareAtomName{39}{Yttrium}
-\DeclareAtomName{40}{Zirconium}
+\DeclareAtomName{40}{Zirkonium}
 \DeclareAtomName{41}{Niobium}
-\DeclareAtomName[Molybdene]{42}{Molybd\`ene}
-\DeclareAtomName[Technetium]{43}{Techn\'etium}
-\DeclareAtomName[Ruthenium]{44}{Ruth\'enium}
+\DeclareAtomName{42}{Molybd\ae n}
+\DeclareAtomName{43}{Technetium}
+\DeclareAtomName{44}{Ruthenium}
 \DeclareAtomName{45}{Rhodium}
 \DeclareAtomName{46}{Palladium}
-\DeclareAtomName{47}{Argent}
-\DeclareAtomName{48}{Cadmium}
+\DeclareAtomName{47}{S\o lv}
+\DeclareAtomName{48}{Kadmium}
 \DeclareAtomName{49}{Indium}
-\DeclareAtomName{50}{Etain}
-\DeclareAtomName{51}{Antimoine}
-\DeclareAtomName{52}{Tellure}
-\DeclareAtomName{53}{Iode}
-\DeclareAtomName[Xenon]{54}{X\'enon}
-\DeclareAtomName[Cesium]{55}{C\'esium}
-\DeclareAtomName{56}{Baryum}
-\DeclareAtomName{57}{Lanthane}
-\DeclareAtomName[Cerium]{58}{C\'erium}
-\DeclareAtomName[Praseodyme]{59}{Pras\'eodyme}
-\DeclareAtomName[Neodyme]{60}{N\'eodyme}
-\DeclareAtomName[Promethium]{61}{Prom\'ethium}
+\DeclareAtomName{50}{Tin}
+\DeclareAtomName{51}{Antimon}
+\DeclareAtomName{52}{Tellur}
+\DeclareAtomName{53}{Jod}
+\DeclareAtomName{54}{Xenon}
+\DeclareAtomName{55}{C\ae sium}
+\DeclareAtomName{56}{Barium}
+\DeclareAtomName{57}{Lantan}
+\DeclareAtomName{58}{Cerium}
+\DeclareAtomName{59}{Praseodym}
+\DeclareAtomName{60}{Neodym}
+\DeclareAtomName{61}{Prometium}
 \DeclareAtomName{62}{Samarium}
 \DeclareAtomName{63}{Europium}
 \DeclareAtomName{64}{Gadolinium}
@@ -92,38 +94,38 @@
 \DeclareAtomName{68}{Erbium}
 \DeclareAtomName{69}{Thulium}
 \DeclareAtomName{70}{Ytterbium}
-\DeclareAtomName[Lutecium]{71}{Lut\'ecium}
+\DeclareAtomName{71}{Lutetium}
 \DeclareAtomName{72}{Hafnium}
-\DeclareAtomName{73}{Tantale}
-\DeclareAtomName[Tungstene]{74}{Tungst\`ene}
-\DeclareAtomName[Rhenium]{75}{Rh\'enium}
+\DeclareAtomName{73}{Tantal}
+\DeclareAtomName{74}{Wolfram}
+\DeclareAtomName{75}{Rhenium}
 \DeclareAtomName{76}{Osmium}
 \DeclareAtomName{77}{Iridium}
-\DeclareAtomName{78}{Platine}
-\DeclareAtomName{79}{Or}
-\DeclareAtomName{80}{Mercure}
-\DeclareAtomName{81}{Thallium}
-\DeclareAtomName{82}{Plomb}
-\DeclareAtomName{83}{Bismuth}
+\DeclareAtomName{78}{Platin}
+\DeclareAtomName{79}{Guld}
+\DeclareAtomName{80}{Kviks\o lv}
+\DeclareAtomName{81}{Tallium}
+\DeclareAtomName{82}{Bly}
+\DeclareAtomName{83}{Bismut}
 \DeclareAtomName{84}{Polonium}
-\DeclareAtomName{85}{Astate}
+\DeclareAtomName{85}{Astat}
 \DeclareAtomName{86}{Radon}
 \DeclareAtomName{87}{Francium}
 \DeclareAtomName{88}{Radium}
-\DeclareAtomName{89}{Actinium}
+\DeclareAtomName{89}{Aktinium}
 \DeclareAtomName{90}{Thorium}
-\DeclareAtomName{91}{Protactinium}
-\DeclareAtomName{92}{Uranium}
+\DeclareAtomName{91}{Protaktinium}
+\DeclareAtomName{92}{Uran}
 \DeclareAtomName{93}{Neptunium}
 \DeclareAtomName{94}{Plutonium}
-\DeclareAtomName[Americium]{95}{Am\'ericium}
+\DeclareAtomName{95}{Americium}
 \DeclareAtomName{96}{Curium}
-\DeclareAtomName[Berkelium]{97}{Berk\'elium}
+\DeclareAtomName{97}{Berkelium}
 \DeclareAtomName{98}{Californium}
 \DeclareAtomName{99}{Einsteinium}
 \DeclareAtomName{100}{Fermium}
-\DeclareAtomName[Mendelevium]{101}{Mendel\'evium}
-\DeclareAtomName[Nobelium]{102}{Nob\'elium}
+\DeclareAtomName{101}{Mendelevium}
+\DeclareAtomName{102}{Nobelium}
 \DeclareAtomName{103}{Lawrencium}
 \DeclareAtomName{104}{Rutherfordium}
 \DeclareAtomName{105}{Dubnium}
@@ -132,13 +134,13 @@
 \DeclareAtomName{108}{Hassium}
 \DeclareAtomName{109}{Meitnerium}
 \DeclareAtomName{110}{Darmstadtium}
-\DeclareAtomName{111}{Roentgenium}
-\DeclareAtomName{112}{Copernicium}
+\DeclareAtomName{111}{R\o ntgenium}
+\DeclareAtomName{112}{Kopernikium}
 \DeclareAtomName{113}{Nihonium}
-\DeclareAtomName[Flerovium]{114}{Fl\'erovium}
+\DeclareAtomName{114}{Flerovium}
 \DeclareAtomName{115}{Moscovium}
 \DeclareAtomName{116}{Livermorium}
-\DeclareAtomName{117}{Tennesse}
+\DeclareAtomName{117}{Tennessin}
 \DeclareAtomName{118}{Oganesson}
 
 \endinput
